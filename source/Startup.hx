@@ -31,8 +31,13 @@ class Startup extends FlxState
 		FlxG.keys.preventDefaultKeys = [TAB];
 		FlxG.game.focusLostFramerate = 30;
 
-		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLUE);
+		var yScroll:Float = Math.max(0.25 - (0.05 * (length - 4)), 0.1);
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(AssetPaths.image('bg'));
+		bg.scrollFactor.set(0, yScroll);
+		bg.setGraphicSize(Std.int(bg.width * 1.175));
+		bg.updateHitbox();
 		bg.screenCenter();
+		bg.antialiasing = true;
 		add(bg);
 
 		loading = new FlxText(0, 0, 0, "Loading...", 22);
@@ -44,8 +49,6 @@ class Startup extends FlxState
 		{
 			AssetPaths.precacheImage(precacheList[i]);
 		}
-
-		AssetPaths.precacheSound('http://sancopublic.ddns.net:5430/api/files/music/G8msGX73o6R2boG/aBV8wpElV40IjTjqOodof3rxy5mawC3z.mp3');
 
 		super.create();
 	}
@@ -67,7 +70,7 @@ class Startup extends FlxState
 
 		if (loading.text == "Done!")
 		{
-			new FlxTimer().start(1.5, (twn:FlxTimer) -> FlxG.switchState(new PlayState()));
+			new FlxTimer().start(1.5, (twn:FlxTimer) -> FlxG.switchState(new states.MainMenu()));
 		}
 		super.update(elapsed);
 	}
