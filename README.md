@@ -1,1 +1,1 @@
-# My Haxe projects template
+# Cool Engine Name

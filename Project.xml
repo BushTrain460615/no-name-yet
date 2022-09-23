@@ -4,7 +4,7 @@
 
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="HaxeFlixel Template" file="HaxeFlixel" packageName="com.sanicbtw.haxeflixel" package="com.sanicbtw.haxeflixel" main="Main" version="0.0.2" company="SanicBTW" />
+	<app title="Cool Engine Name" file="Cool Engine Name" packageName="com.bushtrain.coolname" package="com.bushtrain.coolname" main="Main" version="0.0.1" company="bushtrain460615" />
 
 	<set name="APP_ID" value="0x0100f6c013bbc123" />
 
